@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Patrones de Diseño Estructurales</title>
+</head>
+<body>
+    <div class="backgroud">
+       <img src="./assets/fondo.jfif" alt="fondoPinapp">
+       <div class="title">
+        <h2>Techme Up Pinapp</h2>
+        <h2>Patrones de Diseño Estructurales</h2>
+       </div>
+       
+
+    </div>
+    <div data-aos="flip-right" class="cards">
+        <div class="card" id="presentation">
+            <p>Bienvenidos en esta Presentacion explicaremos que son los Patrones de disenos estructurales, explicaremos cada uno de ellos,
+            y les mostraremos la implementacion de los mismos con ejemplos de codigo utilizando el lenguaje Java.</p>
+        </div>
+       <div data-aos="fade-right"
+       data-aos-offset="300"
+       data-aos-easing="ease-in-sine" class="card" id="team">
+            <div class="perfil" id="cristian">
+                <img src="./assets/cristian.png" alt="perfil cristian">
+                <h3>"Cristian Kerps"</h3>
+                <p>Desarrollador Backend Agora Pay</p>
+            </div>
+            <div class="perfil" id="matias">
+                <img src="./assets/matias.png" alt="perfil matias">
+                <h3>"Milich Matias"</h3>
+                <p>Desarrollador Backend Agora Pay</p>
+            </div>
+        </div>
+        <div data-aos="fade-left"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine" class="card" id="index">
+            <h2>Temas a Explicar</h2>
+            <ol>
+                <li>Que es un patron de diseño estructural?</li>
+                <li>Adapter</li>
+                <li>Bridge</li>
+                <li>Composite</li>
+                <li>Decorator</li>
+                <li>Farcade</li>
+                <li>Flyweight</li>
+                <li>Proxy</li>
+            </ol>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script> AOS.init();</script>
+</body>
+</html>
