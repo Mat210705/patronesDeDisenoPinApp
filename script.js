@@ -3,9 +3,15 @@ const app = Vue.createApp({
         return {
             presentation: false,
             welcome:true,
-           team:false,
-           designPatterns:false,
-           adapter:false,
+            team:false,
+            designPatterns:false,
+            adapter:false,
+            bridge:false,
+            composite:false,
+            decorator:false,
+            facade:false,
+            flyweight:false,
+            proxy:false,
 
         }
     },
@@ -20,6 +26,12 @@ const app = Vue.createApp({
             this.team=false;
             this.designPatterns=false;
             this.adapter=false;
+            this.bridge=false;
+            this.composite=false,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false
 
         },
         mostrarPresentation(e){
@@ -29,7 +41,12 @@ const app = Vue.createApp({
             this.team=false;
             this.designPatterns=false;
             this.adapter=false;
-
+            this.bridge=false;
+            this.composite=false,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false
         },
         mostrarTeam(e){
             console.log(e);
@@ -38,6 +55,12 @@ const app = Vue.createApp({
             this.team=true;
             this.designPatterns=false;
             this.adapter=false;
+            this.bridge=false;
+            this.composite=false,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false
 
         },
         mostrarDesignPatterns(e){
@@ -47,6 +70,12 @@ const app = Vue.createApp({
             this.team=false;
             this.designPatterns=true;
             this.adapter=false;
+            this.bridge=false;
+            this.composite=false,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false
         },
         mostrarAdapter(e){
             console.log(e);
@@ -55,7 +84,27 @@ const app = Vue.createApp({
             this.team=false;
             this.designPatterns=false;
             this.adapter=true;
-        } 
+            this.bridge=false;
+            this.composite=false,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false
+        },
+        mostrarBridge(e){
+            console.log(e);
+            this.welcome=false;
+            this.presentation=false;
+            this.team=false;
+            this.designPatterns=false;
+            this.adapter=false;
+            this.bridge=true;
+            this.composite=false,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false
+        }
     },
 
 })

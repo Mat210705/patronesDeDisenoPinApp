@@ -66,7 +66,8 @@ nav ul {
     font-size: x-large;
     animation: ingresarInput 2s;
 }
-.cards .adapter{
+.cards .adapter,
+.bridge{
     overflow-y: scroll;
     margin: 5vh;
     padding: 4vw;
