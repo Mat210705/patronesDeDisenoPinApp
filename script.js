@@ -112,6 +112,21 @@ const app = Vue.createApp({
             this.proxy=false,
             this.form=false
         },
+        mostrarComposite(e){
+            console.log(e);
+            this.welcome=false;
+            this.presentation=false;
+            this.team=false;
+            this.designPatterns=false;
+            this.adapter=false;
+            this.bridge=false;
+            this.composite=true,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false,
+            this.form=false
+        },
         mostrarForm(e){
             console.log(e);
             this.welcome=false;

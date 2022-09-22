@@ -73,6 +73,7 @@ nav ul {
 }
 .cards .adapter,
 .bridge,
+.composite,
 .form{
     overflow-y: scroll;
     margin: 5vh;
