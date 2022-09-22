@@ -57,11 +57,14 @@
                         <li class="nav-item">
                             <a  type="button" class="link-danger m-2" @click="mostrarProxy">Proxy</a>
                         </li>
+                        <li class="nav-item">
+                          <a  type="button" class="link-danger m-2" @click="mostrarForm">Formulario</a>
+                      </li>
                       </ul>
                 </nav>
                 <div v-show="welcome" class="cards col col-9 ">
                     <div  class="welcome" >
-                        <h1>Techme up-Patrones de Diseño</h1>    
+                        <img src="./assets/welcome.jpg" alt="">
                     </div>
                 </div>                           
                 <div v-show="presentation" class="cards col col-9" >
@@ -264,7 +267,12 @@
                         </div>
                       </div>
                   </div>
-              </div>                                                   
+              </div>  
+              <div v-show="form" class="cards col col-9" >
+                <div class="form">
+                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeDLeaX-AMC2bvL29yescO_8zNs2DxgidBYbrPtkwqhTNKeWw/viewform?embedded=true" width="640" height="816" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+                </div>
+              </div>                                                 
             </main>
         </body>
     <footer>

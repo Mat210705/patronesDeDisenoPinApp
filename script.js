@@ -12,6 +12,7 @@ const app = Vue.createApp({
             facade:false,
             flyweight:false,
             proxy:false,
+            form:false,
 
         }
     },
@@ -31,7 +32,8 @@ const app = Vue.createApp({
             this.decorator=false,
             this.facade=false,
             this.flyweight=false,
-            this.proxy=false
+            this.proxy=false,
+            this.form=false
 
         },
         mostrarPresentation(e){
@@ -46,7 +48,8 @@ const app = Vue.createApp({
             this.decorator=false,
             this.facade=false,
             this.flyweight=false,
-            this.proxy=false
+            this.proxy=false,
+            this.form=false
         },
         mostrarTeam(e){
             console.log(e);
@@ -60,7 +63,8 @@ const app = Vue.createApp({
             this.decorator=false,
             this.facade=false,
             this.flyweight=false,
-            this.proxy=false
+            this.proxy=false,
+            this.form=false
 
         },
         mostrarDesignPatterns(e){
@@ -75,7 +79,8 @@ const app = Vue.createApp({
             this.decorator=false,
             this.facade=false,
             this.flyweight=false,
-            this.proxy=false
+            this.proxy=false,
+            this.form=false
         },
         mostrarAdapter(e){
             console.log(e);
@@ -89,7 +94,8 @@ const app = Vue.createApp({
             this.decorator=false,
             this.facade=false,
             this.flyweight=false,
-            this.proxy=false
+            this.proxy=false,
+            this.form=false
         },
         mostrarBridge(e){
             console.log(e);
@@ -103,7 +109,23 @@ const app = Vue.createApp({
             this.decorator=false,
             this.facade=false,
             this.flyweight=false,
-            this.proxy=false
+            this.proxy=false,
+            this.form=false
+        },
+        mostrarForm(e){
+            console.log(e);
+            this.welcome=false;
+            this.presentation=false;
+            this.team=false;
+            this.designPatterns=false;
+            this.adapter=false;
+            this.bridge=false;
+            this.composite=false,
+            this.decorator=false,
+            this.facade=false,
+            this.flyweight=false,
+            this.proxy=false,
+            this.form=true
         }
     },
 
