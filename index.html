@@ -69,7 +69,7 @@
                 </div>                           
                 <div v-show="presentation" class="cards col col-9" >
                     <div class="presentation">
-                        <p>Bienvenidos en esta Presentacion explicaremos que son los Patrones de disenos estructurales, explicaremos cada uno de ellos, y les mostraremos la implementacion de los mismos con ejemplos de codigo utilizando el lenguaje Java.</p>
+                        <p>En esta Presentacion explicaremos que son los Patrones de disenos estructurales, cada uno de ellos, y les mostraremos la implementacion de los mismos con ejemplos tanto en como seria realizando una aplicacion.</p>
                     </div>
                 </div> 
                 <div v-show="team" class="cards col col-9" >
@@ -402,6 +402,143 @@
                           </div>
                       </div>
                     </div>
+                </div>
+              </div>  
+              <div v-show="decorator" class="cards col col-9" >
+                <div class="decorator">
+                    <div class="cardDecorator">
+                        <h2>Decorator</h2>
+                          <p>Decorator es un patrón de diseño estructural que te permite añadir funcionalidades a objetos colocando estos objetos dentro de objetos encapsuladores especiales que contienen estas funcionalidades.</p>
+                       <div class="accordion" id="accordionExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                              Descripcion
+                            </button>
+                          </h2>
+                          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <p>Según este patrón, cualquier objeto puede complementarse con un comportamiento deseado sin influir en las funcionalidades de otros objetos de la misma clase. Desde el punto de vista estructural, el patrón Decorador tiene mucho en común con el patrón Cadena de Responsabilidad (Chain of Responsibility), aunque, en contraste con este, con un procesador central, todas las clases reciben las peticiones.
+
+                                El componente de software que hay que ampliar se “decora” con una o más clases decoradoras, que lo envuelven completamente, siguiendo el patrón de diseño Decorador. Cada decorador es del mismo tipo que el componente al que envuelve y, por lo tanto, tiene la misma interfaz. De esta manera, las llamadas de método entrantes pueden delegarse fácilmente al componente adjunto mientras lleva a cabo una funcionalidad. Las llamadas también pueden procesarse dentro del decorador.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Ejemplos de la vida real
+                            </button>
+                          </h2>
+                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <p>Vestir ropa es un ejemplo del uso de decoradores. Cuando tienes frío, te cubres con un suéter. Si sigues teniendo frío a pesar del suéter, puedes ponerte una chaqueta encima. Si está lloviendo, puedes ponerte un impermeable. Todas estas prendas “extienden” tu comportamiento básico pero no son parte de ti, y puedes quitarte fácilmente cualquier prenda cuando lo desees.</p>
+                                  <img src="./assets/decoratoEjemplo.png" alt="ejemplo de decorator en la vida real">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Aplicabilidad
+                              </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                               <p> Utiliza el patrón Decorator cuando necesites asignar funcionalidades adicionales a objetos durante el tiempo de ejecución sin descomponer el código que utiliza esos objetos.
+
+                                El patrón Decorator te permite estructurar tu lógica de negocio en capas, crear un decorador para cada capa y componer objetos con varias combinaciones de esta lógica, durante el tiempo de ejecución. El código cliente puede tratar a todos estos objetos de la misma forma, ya que todos siguen una interfaz común.
+                               
+                                Utiliza el patrón cuando resulte extraño o no sea posible extender el comportamiento de un objeto utilizando la herencia.
+                               
+                                Muchos lenguajes de programación cuentan con la palabra clave final que puede utilizarse para evitar que una clase siga extendiéndose. Para una clase final, la única forma de reutilizar el comportamiento existente será envolver la clase con tu propio wrapper, utilizando el patrón Decorator.</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Como Implementarlo
+                              </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <p>Asegúrate de que tu dominio de negocio puede representarse como un componente primario con varias capas opcionales encima.
+
+                                  Decide qué métodos son comunes al componente primario y las capas opcionales. Crea una interfaz de componente y declara esos métodos en ella.
+                                  
+                                  Crea una clase concreta de componente y define en ella el comportamiento base.
+                                  
+                                  Crea una clase base decoradora. Debe tener un campo para almacenar una referencia a un objeto envuelto. El campo debe declararse con el tipo de interfaz de componente para permitir la vinculación a componentes concretos, así como a decoradores. La clase decoradora base debe delegar todas las operaciones al objeto envuelto.
+                                  
+                                  Asegúrate de que todas las clases implementan la interfaz de componente.
+                                  
+                                  Crea decoradores concretos extendiéndolos a partir de la decoradora base. Un decorador concreto debe ejecutar su comportamiento antes o después de la llamada al método padre (que siempre delega al objeto envuelto).
+                                  
+                                  El código cliente debe ser responsable de crear decoradores y componerlos del modo que el cliente necesite.</p>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div v-show="facade" class="cards col col-9" >
+                      <div class="facade">
+                          <div class="cardFacada">
+                              <h2>Facade</h2>
+                                <p></p>
+                             <div class="accordion" id="accordionExample">
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Descripcion
+                                  </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                    <p></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Ejemplos 
+                                  </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                    <p></p>
+                                        
+                                        <p></p>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="accordion-item">
+                                  <h2 class="accordion-header" id="headingFour">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                      Aplicabilidad
+                                    </button>
+                                  </h2>
+                                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                     <p> </p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="headingFive">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                      Como Implementarlo
+                                    </button>
+                                  </h2>
+                                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                      <p></p>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          </div>
                 </div>
               </div>  
               <div v-show="form" class="cards col col-9" >

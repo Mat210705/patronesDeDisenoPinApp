@@ -74,6 +74,8 @@ nav ul {
 .cards .adapter,
 .bridge,
 .composite,
+.decorator,
+.facade
 .form{
     overflow-y: scroll;
     margin: 5vh;
