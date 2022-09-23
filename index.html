@@ -2,559 +2,1187 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-    <title>Techme Up-Patrones de Diseño</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css">
+  <title>Techme Up-Patrones de Diseño</title>
 </head>
+
 <body>
-    <header>
-        <div class="logo">
-         
+  <header>
+    <div class="logo">
+
+    </div>
+  </header>
+
+  <body id="app">
+    <main class="row">
+      <nav class="col col-3  flex-column">
+        <img src="./assets/pinappLogo.png" alt="">
+        <hr>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarWelcome">Bienvenidos</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarPresentation">Presentacion</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarTeam">Equipo</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarDesignPatterns">Patrones Estructurales</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarAdapter">Adapter</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarBridge">Bridge</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarComposite">Composite</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarDecorator">Decorator</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarFacade">Facade</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarFlyweight">Flyweight</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarProxy">Proxy</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="link-danger m-2" @click="mostrarForm">Formulario</a>
+          </li>
+        </ul>
+      </nav>
+      <div v-show="welcome" class="cards col col-9 ">
+        <div class="welcome">
+          <img src="./assets/welcome.jpg" alt="">
         </div>
-    </header>
-        <body id="app">
-            <main  class="row">                    
-                <nav class="col col-3  flex-column"> 
-                    <img src="./assets/pinappLogo.png" alt="">   
-                    <hr>                            
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a type="button" class="link-danger m-2" @click="mostrarWelcome" >Bienvenidos</a>
-                          </li>
-                          <li class="nav-item">
-                            <a type="button" class="link-danger m-2" @click="mostrarPresentation" >Presentacion</a>
-                          </li>
-                        <li class="nav-item">
-                          <a type="button" class="link-danger m-2" @click="mostrarTeam">Equipo</a>
-                        </li>
-                        <li class="nav-item">
-                          <a type="button" class="link-danger m-2" @click="mostrarDesignPatterns">Patrones Estructurales</a>
-                        </li>
-                        <li class="nav-item">
-                          <a  type="button" class="link-danger m-2" @click="mostrarAdapter">Adapter</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  type="button" class="link-danger m-2" @click="mostrarBridge">Bridge</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  type="button" class="link-danger m-2" @click="mostrarComposite">Composite</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  type="button" class="link-danger m-2" @click="mostrarDecorator">Decorator</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  type="button" class="link-danger m-2" @click="mostrarFacade">Facade</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  type="button" class="link-danger m-2" @click="mostrarFlyweight">Flyweight</a>
-                        </li>
-                        <li class="nav-item">
-                            <a  type="button" class="link-danger m-2" @click="mostrarProxy">Proxy</a>
-                        </li>
-                        <li class="nav-item">
-                          <a  type="button" class="link-danger m-2" @click="mostrarForm">Formulario</a>
-                      </li>
-                      </ul>
-                </nav>
-                <div v-show="welcome" class="cards col col-9 ">
-                    <div  class="welcome" >
-                        <img src="./assets/welcome.jpg" alt="">
-                    </div>
-                </div>                           
-                <div v-show="presentation" class="cards col col-9" >
-                    <div class="presentation">
-                        <p>En esta Presentacion explicaremos que son los Patrones de disenos estructurales, cada uno de ellos, y les mostraremos la implementacion de los mismos con ejemplos tanto en como seria realizando una aplicacion.</p>
-                    </div>
-                </div> 
-                <div v-show="team" class="cards col col-9" >
-                    <div class="team">
-                        <div class="cardTeam">
-                            <h2>Cristian Kerps</h2>
-                            <img src="./assets/cristian.png" alt="Foto perfil Cristian Kerps">
-                            <p>Desarrollador Backend Agora Pay</p>
-                        </div>
-                        <div class="cardTeam">
-                            <h2>Matias Milich</h2>
-                            <img src="./assets/matias.png" alt="Foto perfil Matias Milich">
-                            <p>Desarrollador Backend Agora Pay</p>
-                        </div>
-                    </div>
-                </div> 
-                <div v-show="designPatterns" class="cards col col-9" >
-                    <div class="designPatterns">
-                        <div class="cardDesignPatterns">
-                            <p>Los patrones estructurales explican cómo ensamblar objetos y clases en estructuras más grandes, a la vez que se mantiene la flexibilidad y eficiencia de estas estructuras.</p>
-                            <p>Existen siete patrones de diseño estructurales:</p>
-                            <ul>
-                                <li>Adapter</li>
-                                <li>Bridge</li>
-                                <li>Composite</li>
-                                <li>Decorator</li>
-                                <li>Facade</li>
-                                <li>Flyweight</li>
-                                <li>Proxy</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>  
-                <div v-show="adapter" class="cards col col-9" >
-                    <div class="adapter">
-                        <div class="cardAdapter">
-                            <h2>Adapter</h2>
-                           <p>Adapter es un patrón de diseño estructural que permite la colaboración entre objetos con interfaces incompatibles.</p>
-                           <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                  Descripcion
-                                </button>
-                              </h2>
-                              <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <p>El patrón adaptador se utiliza para transformar una interfaz en otra, de tal modo que una clase que no pueda utilizar la primera haga uso de ella a través de la segunda, es decir supongamos que estamos creando una aplicacion de monitoreo del mercado de valores. La aplicación descarga la información de bolsa desde varias fuentes en formato XML para presentarla al usuario con bonitos gráficos y diagramas.</p>
-                                    <p>En cierto momento, decides mejorar la aplicación integrando una inteligente biblioteca de análisis de una tercera persona. Pero hay una trampa: la biblioteca de análisis solo funciona con datos en formato JSON.</p>
-                                    <p>La solucion sera crear un adaptador que combierta el objeto XML en un objeto JSON. Se trata de un objeto especial que convierte la interfaz de un objeto, de forma que otro objeto pueda comprenderla.</p>
-                                   <p>Los adaptadores no solo convierten datos a varios formatos, sino que también ayudan a objetos con distintas interfaces a colaborar. Funciona así:</p> 
-                                    <ul>
-                                        <li>El adaptador obtiene una interfaz compatible con uno de los objetos existentes.</li>
-                                        <li>Utilizando esta interfaz, el objeto existente puede invocar con seguridad los métodos del adaptador.</li>
-                                        <li>Al recibir una llamada, el adaptador pasa la solicitud al segundo objeto, pero en un formato y orden que ese segundo objeto espera.</li>
-                                    </ul>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Ejemplos de una aplicacion
-                                </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>En este caso vemos un diagrama de donde seria necesario usar un patron adapter en donde estaria fallando nuestra aplicacion</p>
-                                    <img src="./assets/adapterEjemplo1.png" alt="Diagrama de donde se aplicaria un patron adapter">
-                                    <p>Aqui vemos el patron implementado y como nos ayuda a poder solucionar el problema antes mencionado</p>
-                                    <img src="./assets/adapterEjemplo.png" alt="Diagrama de como seria un patron adapter">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                  Ejemplos de la vida real
-                                </button>
-                              </h2>
-                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <img src="./assets/ejemploVidaRealAdapter.png" alt="Ejemplo de Patron adapter en la vida real">
-                                  <p>Cuando viajas de Europa a Estados Unidos por primera vez, puede ser que te lleves una sorpresa cuanto intentes cargar tu computadora portátil. Los tipos de enchufe son diferentes en cada país, por lo que un enchufe español no sirve en Estados Unidos. El problema puede solucionarse utilizando un adaptador que incluya el enchufe americano y el europeo.</p>
-
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Aplicabilidad
-                                  </button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                    <p> Utiliza la clase adaptadora cuando quieras usar una clase existente, pero cuya interfaz no sea compatible con el resto del código.
-                                        El patrón Adapter te permite crear una clase intermedia que sirva como traductora entre tu código y una clase heredada, una clase de un tercero o cualquier otra clase con una interfaz extraña.                                       
-                                        Utiliza el patrón cuando quieras reutilizar varias subclases existentes que carezcan de alguna funcionalidad común que no pueda añadirse a la superclase.                                       
-                                        Puedes extender cada subclase y colocar la funcionalidad que falta, dentro de las nuevas clases hijas. No obstante, deberás duplicar el código en todas estas nuevas clases, lo cual huele muy mal.                                       
-                                       Una solución mucho más elegante sería colocar la funcionalidad que falta dentro de una clase adaptadora. Después puedes envolver objetos a los que les falten funciones, dentro de la clase adaptadora, obteniendo esas funciones necesarias de un modo dinámico. Para que esto funcione, las clases en cuestión deben tener una interfaz común y el campo de la clase adaptadora debe seguir dicha interfaz. Este procedimiento es muy similar al del patrón Decorator.</p>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFive">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                    Como Implementarlo
-                                  </button>
-                                </h2>
-                                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                    <p> Asegúrate de que tienes al menos dos clases con interfaces incompatibles:
-                                        Una útil clase servicio que no puedes cambiar (a menudo de un tercero, heredada o con muchas dependencias existentes).
-                                        Una o varias clases cliente que se beneficiarían de contar con una clase de servicio.
-                                        Declara la interfaz con el cliente y describe el modo en que las clases cliente se comunican con la clase de servicio.                                      
-                                        Crea la clase adaptadora y haz que siga la interfaz con el cliente. Deja todos los métodos vacíos por ahora.                                        
-                                        Añade un campo a la clase adaptadora para almacenar una referencia al objeto de servicio. La práctica común es inicializar este campo a través del constructor, pero en ocasiones es adecuado pasarlo al adaptador cuando se invocan sus métodos.
-                                        Uno por uno, implementa todos los métodos de la interfaz con el cliente en la clase adaptadora. La clase adaptadora deberá delegar la mayor parte del trabajo real al objeto de servicio, gestionando tan solo la interfaz o la conversión de formato de los datos.
-                                        Las clases cliente deberán utilizar la clase adaptadora a través de la interfaz con el cliente. Esto te permitirá cambiar o extender las clases adaptadoras sin afectar al código cliente.</p>
-                                  </div>
-                                </div>
-                              </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-                <div v-show="bridge" class="cards col col-9" >
-                  <div class="bridge">
-                      <div class="cardBridge">
-                          <h2>Bridge</h2>
-                          <p>Bridge es un patrón de diseño utilizado para desacoplar una abstracción de su implementación de manera que las dos puedan ser modificadas por separado sin necesidad de modificar la otra; dicho de otra manera, se desacopla una abstracción de su implementación para que puedan variar independientemente.</p>
-                         <div class="accordion" id="accordionExample">
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                Descripcion
-                              </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                <p>Bridge es un patrón de diseño estructural que te permite dividir una clase grande, o un grupo de clases estrechamente relacionadas, en dos jerarquías separadas (abstracción e implementación) que pueden desarrollarse independientemente la una de la otra.</p> 
-                               <p>Digamos que tienes una clase geométrica Forma con un par de subclases: Círculo y Cuadrado. Deseas extender esta jerarquía de clase para que incorpore colores, por lo que planeas crear las subclases de forma Rojo y Azul. Sin embargo, como ya tienes dos subclases, tienes que crear cuatro combinaciones de clase, como CírculoAzul y CuadradoRojo.</p>
-                               <p>Añadir nuevos tipos de forma y color a la jerarquía hará que ésta crezca exponencialmente. Por ejemplo, para añadir una forma de triángulo deberás introducir dos subclases, una para cada color. Y, después, para añadir un nuevo color habrá que crear tres subclases, una para cada tipo de forma. Cuanto más avancemos, peor será.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Ejemplos 
-                              </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                  <img src="./assets/bridgeEjemploUno.png" alt="ejemplo bridge uno">
-                                  <p>Este problema se presenta porque intentamos extender las clases de forma en dos dimensiones independientes: por forma y por color. Es un problema muy habitual en la herencia de clases.
-                                  El patrón Bridge intenta resolver este problema pasando de la herencia a la composición del objeto. Esto quiere decir que se extrae una de las dimensiones a una jerarquía de clases separada, de modo que las clases originales referencian un objeto de la nueva jerarquía, en lugar de tener todo su estado y sus funcionalidades dentro de una clase.</p>
-                                  <img src="./assets/bridgeEjemplo2.png" alt="ejemplo bridge dos">
-                                  <p>Con esta solución, podemos extraer el código relacionado con el color y colocarlo dentro de su propia clase, con dos subclases: Rojo y Azul. La clase Forma obtiene entonces un campo de referencia que apunta a uno de los objetos de color. Ahora la forma puede delegar cualquier trabajo relacionado con el color al objeto de color vinculado. Esa referencia actuará como un puente entre las clases Forma y Color. En adelante, añadir nuevos colores no exigirá cambiar la jerarquía de forma y viceversa.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Abstracción e implementación
-                              </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                <p>El libro de la GoF  introduce los términos Abstracción e Implementación como parte de la definición del patrón Bridge. En mi opinión, los términos suenan demasiado académicos y provocan que el patrón parezca más complicado de lo que es en realidad. Una vez leído el sencillo ejemplo con las formas y los colores, vamos a descifrar el significado que esconden las temibles palabras del libro de esta banda de cuatro.
-
-                                  La Abstracción (también llamada interfaz) es una capa de control de alto nivel para una entidad. Esta capa no tiene que hacer ningún trabajo real por su cuenta, sino que debe delegar el trabajo a la capa de implementación (también llamada plataforma).
-                                  
-                                  Ten en cuenta que no estamos hablando de las interfaces o las clases abstractas de tu lenguaje de programación. Son cosas diferentes.
-                                  
-                                  Cuando hablamos de aplicación reales, la abstracción puede representarse por una interfaz gráfica de usuario (GUI), y la implementación puede ser el código del sistema operativo subyacente (API) a la que la capa GUI llama en respuesta a las interacciones del usuario.
-                                  
-                                  En términos generales, puedes extender esa aplicación en dos direcciones independientes:
-                                  
-                                  Tener varias GUI diferentes (por ejemplo, personalizadas para clientes regulares o administradores).
-                                  Soportar varias API diferentes (por ejemplo, para poder lanzar la aplicación con Windows, Linux y macOS).
-                                  En el peor de los casos, esta aplicación podría asemejarse a un plato gigante de espagueti, en el que cientos de condicionales conectan distintos tipos de GUI con varias API por todo el código.
-                                  
-                                  Es mucho más sencillo gestionar cambios en código modular
-                                  Realizar incluso un cambio sencillo en una base de código monolítica es bastante difícil porque debes comprender todo el asunto muy bien. Es mucho más sencillo realizar cambios en módulos más pequeños y bien definidos.
-                                  
-                                  Puedes poner orden en este caos metiendo el código relacionado con combinaciones específicas interfaz-plataforma dentro de clases independientes. Sin embargo, pronto descubrirás que hay muchas de estas clases. La jerarquía de clase crecerá exponencialmente porque añadir una nueva GUI o soportar una API diferente exigirá que se creen más y más clases.
-                                  
-                                  Intentemos resolver este problema con el patrón Bridge, que nos sugiere que dividamos las clases en dos jerarquías:
-                                  
-                                  Abstracción: la capa GUI de la aplicación.
-                                  Implementación: las API de los sistemas operativos.
-                                  Arquitectura multiplataforma
-                                  Una de las formas de estructurar una aplicación multiplataforma.
-                                  
-                                  El objeto de la abstracción controla la apariencia de la aplicación, delegando el trabajo real al objeto de la implementación vinculado. Las distintas implementaciones son intercambiables siempre y cuando sigan una interfaz común, permitiendo a la misma GUI funcionar con Windows y Linux.
-                                  
-                                  En consecuencia, puedes cambiar las clases de la GUI sin tocar las clases relacionadas con la API. Además, añadir soporte para otro sistema operativo sólo requiere crear una subclase en la jerarquía de implementación.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                  Aplicabilidad
-                                </button>
-                              </h2>
-                              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <p>Utiliza el patrón Bridge cuando quieras dividir y organizar una clase monolítica que tenga muchas variantes de una sola funcionalidad (por ejemplo, si la clase puede trabajar con diversos servidores de bases de datos).
-
-                                    Conforme más crece una clase, más difícil resulta entender cómo funciona y más tiempo se tarda en realizar un cambio. Cambiar una de las variaciones de funcionalidad puede exigir realizar muchos cambios a toda la clase, lo que a menudo provoca que se cometan errores o no se aborden algunos de los efectos colaterales críticos.
-                                   
-                                   El patrón Bridge te permite dividir la clase monolítica en varias jerarquías de clase. Después, puedes cambiar las clases de cada jerarquía independientemente de las clases de las otras. Esta solución simplifica el mantenimiento del código y minimiza el riesgo de descomponer el código existente.
-                                   
-                                    Utiliza el patrón cuando necesites extender una clase en varias dimensiones ortogonales (independientes).
-                                   
-                                    El patrón Bridge sugiere que extraigas una jerarquía de clase separada para cada una de las dimensiones. La clase original delega el trabajo relacionado a los objetos pertenecientes a dichas jerarquías, en lugar de hacerlo todo por su cuenta.
-                                   
-                                    Utiliza el patrón Bridge cuando necesites poder cambiar implementaciones durante el tiempo de ejecución.
-                                   
-                                    Aunque es opcional, el patrón Bridge te permite sustituir el objeto de implementación dentro de la abstracción. Es tan sencillo como asignar un nuevo valor a un campo.
-                                   
-                                   Por cierto, este último punto es la razón principal por la que tanta gente confunde el patrón Bridge con el patrón Strategy. Recuerda que un patrón es algo más que un cierto modo de estructurar tus clases. También puede comunicar intención y el tipo de problema que se está abordando.</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                  Como Implementarlo
-                                </button>
-                              </h2>
-                              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <p>Identifica las dimensiones ortogonales de tus clases. Estos conceptos independientes pueden ser: abstracción/plataforma, dominio/infraestructura, front end/back end, o interfaz/implementación.
-                                    Comprueba qué operaciones necesita el cliente y defínelas en la clase base de abstracción.
-                                    Determina las operaciones disponibles en todas las plataformas. Declara aquellas que necesite la abstracción en la interfaz general de implementación.
-                                    Crea clases concretas de implementación para todas las plataformas de tu dominio, pero asegúrate de que todas sigan la interfaz de implementación.
-                                    Dentro de la clase de abstracción añade un campo de referencia para el tipo de implementación. La abstracción delega la mayor parte del trabajo al objeto de la implementación referenciado en ese campo.
-                                    Si tienes muchas variantes de lógica de alto nivel, crea abstracciones refinadas para cada variante extendiendo la clase base de abstracción.                               
-                                    El código cliente debe pasar un objeto de implementación al constructor de la abstracción para asociar el uno con el otro. Después, el cliente puede ignorar la implementación y trabajar solo con el objeto de la abstracción.</p>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
+      </div>
+      <div v-show="presentation" class="cards col col-9">
+        <div class="presentation">
+          <p>En esta Presentacion explicaremos que son los Patrones de disenos estructurales, cada uno de ellos, y les
+            mostraremos la implementacion de los mismos con ejemplos tanto en como seria realizando una aplicacion.</p>
+        </div>
+      </div>
+      <div v-show="team" class="cards col col-9">
+        <div class="team">
+          <div class="cardTeam">
+            <h2>Cristian Kerps</h2>
+            <img src="./assets/cristian.png" alt="Foto perfil Cristian Kerps">
+            <p>Desarrollador Backend Agora Pay</p>
+          </div>
+          <div class="cardTeam">
+            <h2>Matias Milich</h2>
+            <img src="./assets/matias.png" alt="Foto perfil Matias Milich">
+            <p>Desarrollador Backend Agora Pay</p>
+          </div>
+        </div>
+      </div>
+      <div v-show="designPatterns" class="cards col col-9">
+        <div class="designPatterns">
+          <div class="cardDesignPatterns">
+            <p>Los patrones estructurales explican cómo ensamblar objetos y clases en estructuras más grandes, a la vez
+              que se mantiene la flexibilidad y eficiencia de estas estructuras.</p>
+            <p>Existen siete patrones de diseño estructurales:</p>
+            <ul>
+              <li>Adapter</li>
+              <li>Bridge</li>
+              <li>Composite</li>
+              <li>Decorator</li>
+              <li>Facade</li>
+              <li>Flyweight</li>
+              <li>Proxy</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div v-show="adapter" class="cards col col-9">
+        <div class="adapter">
+          <div class="cardAdapter">
+            <h2>Adapter</h2>
+            <p>Adapter es un patrón de diseño estructural que permite la colaboración entre objetos con interfaces
+              incompatibles.</p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">
+                    Descripcion
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>El patrón adaptador se utiliza para transformar una interfaz en otra, de tal modo que una clase
+                      que no pueda utilizar la primera haga uso de ella a través de la segunda, es decir supongamos que
+                      estamos creando una aplicacion de monitoreo del mercado de valores. La aplicación descarga la
+                      información de bolsa desde varias fuentes en formato XML para presentarla al usuario con bonitos
+                      gráficos y diagramas.</p>
+                    <p>En cierto momento, decides mejorar la aplicación integrando una inteligente biblioteca de
+                      análisis de una tercera persona. Pero hay una trampa: la biblioteca de análisis solo funciona con
+                      datos en formato JSON.</p>
+                    <p>La solucion sera crear un adaptador que combierta el objeto XML en un objeto JSON. Se trata de un
+                      objeto especial que convierte la interfaz de un objeto, de forma que otro objeto pueda
+                      comprenderla.</p>
+                    <p>Los adaptadores no solo convierten datos a varios formatos, sino que también ayudan a objetos con
+                      distintas interfaces a colaborar. Funciona así:</p>
+                    <ul>
+                      <li>El adaptador obtiene una interfaz compatible con uno de los objetos existentes.</li>
+                      <li>Utilizando esta interfaz, el objeto existente puede invocar con seguridad los métodos del
+                        adaptador.</li>
+                      <li>Al recibir una llamada, el adaptador pasa la solicitud al segundo objeto, pero en un formato y
+                        orden que ese segundo objeto espera.</li>
+                    </ul>
                   </div>
+                </div>
               </div>
-              <div v-show="composite" class="cards col col-9" >
-                <div class="composite">
-                    <div class="cardComposite">
-                        <h2>Composite</h2>
-                          <p>Composite es un patrón de diseño estructural que te permite componer objetos en estructuras de árbol y trabajar con esas estructuras como si fueran objetos individuales.</p>
-                       <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                              Descripcion
-                            </button>
-                          </h2>
-                          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                              <p>El patrón de diseño Composite nos sirve para construir estructuras complejas partiendo de otras estructuras mucho más simples, dicho de otra manera, podemos crear estructuras compuestas las cuales están conformadas por otras estructuras más pequeñas.
-                                Para comprender mejor como funciona este patrón imaginemos una casa de ladrillos, las casas como tal no están hecha de una pieza, si observamos las paredes estas esta echas de pequeñas piezas llamadas ladrillos, entonces, el conjunto de estos ladrillos crea paredes, y un conjunto de paredes crean una casa. este ejemplo puede ser aplicado al patrón Composite, este ejemplo nos da una idea de cómo trabaja para poder utilizarlo con otros ejemplos.</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              Ejemplos 
-                            </button>
-                          </h2>
-                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p>El uso del patrón Composite sólo tiene sentido cuando el modelo central de tu aplicación puede representarse en forma de árbol.
-
-                                  Por ejemplo, imagina que tienes dos tipos de objetos: Productos y Cajas. Una Caja puede contener varios Productos así como cierto número de Cajas más pequeñas. Estas Cajas pequeñas también pueden contener algunos Productos o incluso Cajas más pequeñas, y así sucesivamente.
-                                  
-                                  Digamos que decides crear un sistema de pedidos que utiliza estas clases. Los pedidos pueden contener productos sencillos sin envolver, así como cajas llenas de productos... y otras cajas. ¿Cómo determinarás el precio total de ese pedido?</p>
-                                  <img src="./assets/ejemploVidaRealComposite.png" alt="ejemplo de la vida real composite">
-                                  <p>Puedes intentar la solución directa: desenvolver todas las cajas, repasar todos los productos y calcular el total. Esto sería viable en el mundo real; pero en un programa no es tan fácil como ejecutar un bucle. Tienes que conocer de antemano las clases de Productos y Cajas a iterar, el nivel de anidación de las cajas y otros detalles desagradables. Todo esto provoca que la solución directa sea demasiado complicada, o incluso imposible.</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Aplicabilidad
-                              </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                               <p>Utiliza el patrón Composite cuando tengas que implementar una estructura de objetos con forma de árbol.
-
-                                El patrón Composite te proporciona dos tipos de elementos básicos que comparten una interfaz común: hojas simples y contenedores complejos. Un contenedor puede estar compuesto por hojas y por otros contenedores. Esto te permite construir una estructura de objetos recursivos anidados parecida a un árbol.
-                               
-                                Utiliza el patrón cuando quieras que el código cliente trate elementos simples y complejos de la misma forma.
-                               
-                                Todos los elementos definidos por el patrón Composite comparten una interfaz común. Utilizando esta interfaz, el cliente no tiene que preocuparse por la clase concreta de los objetos con los que funciona.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFive">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Como Implementarlo
-                              </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                <p>Asegúrate de que el modelo central de tu aplicación pueda representarse como una estructura de árbol. Intenta dividirlo en elementos simples y contenedores. Recuerda que los contenedores deben ser capaces de contener tanto elementos simples como otros contenedores.
-
-                                  Declara la interfaz componente con una lista de métodos que tengan sentido para componentes simples y complejos.
-                                  
-                                  Crea una clase hoja para representar elementos simples. Un programa puede tener varias clases hoja diferentes.
-                                  
-                                  Crea una clase contenedora para representar elementos complejos. Incluye un campo matriz en esta clase para almacenar referencias a subelementos. La matriz debe poder almacenar hojas y contenedores, así que asegúrate de declararla con el tipo de la interfaz componente.
-                                  
-                                  Al implementar los métodos de la interfaz componente, recuerda que un contenedor debe delegar la mayor parte del trabajo a los subelementos.
-                                  
-                                  Por último, define los métodos para añadir y eliminar elementos hijos dentro del contenedor.
-                                  
-                                  Ten en cuenta que estas operaciones se pueden declarar en la interfaz componente. Esto violaría el Principio de segregación de la interfaz porque los métodos de la clase hoja estarían vacíos. No obstante, el cliente podrá tratar a todos los elementos de la misma manera, incluso al componer el árbol.</p>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ejemplos de una aplicacion
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>En este caso vemos un diagrama de donde seria necesario usar un patron adapter en donde estaria
+                      fallando nuestra aplicacion</p>
+                    <img src="./assets/adapterEjemplo1.png" alt="Diagrama de donde se aplicaria un patron adapter">
+                    <p>Aqui vemos el patron implementado y como nos ayuda a poder solucionar el problema antes
+                      mencionado</p>
+                    <img src="./assets/adapterEjemplo.png" alt="Diagrama de como seria un patron adapter">
+                  </div>
                 </div>
-              </div>  
-              <div v-show="decorator" class="cards col col-9" >
-                <div class="decorator">
-                    <div class="cardDecorator">
-                        <h2>Decorator</h2>
-                          <p>Decorator es un patrón de diseño estructural que te permite añadir funcionalidades a objetos colocando estos objetos dentro de objetos encapsuladores especiales que contienen estas funcionalidades.</p>
-                       <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                              Descripcion
-                            </button>
-                          </h2>
-                          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                              <p>Según este patrón, cualquier objeto puede complementarse con un comportamiento deseado sin influir en las funcionalidades de otros objetos de la misma clase. Desde el punto de vista estructural, el patrón Decorador tiene mucho en común con el patrón Cadena de Responsabilidad (Chain of Responsibility), aunque, en contraste con este, con un procesador central, todas las clases reciben las peticiones.
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Ejemplos de la vida real
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <img src="./assets/ejemploVidaRealAdapter.png" alt="Ejemplo de Patron adapter en la vida real">
+                    <p>Cuando viajas de Europa a Estados Unidos por primera vez, puede ser que te lleves una sorpresa
+                      cuanto intentes cargar tu computadora portátil. Los tipos de enchufe son diferentes en cada país,
+                      por lo que un enchufe español no sirve en Estados Unidos. El problema puede solucionarse
+                      utilizando un adaptador que incluya el enchufe americano y el europeo.</p>
 
-                                El componente de software que hay que ampliar se “decora” con una o más clases decoradoras, que lo envuelven completamente, siguiendo el patrón de diseño Decorador. Cada decorador es del mismo tipo que el componente al que envuelve y, por lo tanto, tiene la misma interfaz. De esta manera, las llamadas de método entrantes pueden delegarse fácilmente al componente adjunto mientras lleva a cabo una funcionalidad. Las llamadas también pueden procesarse dentro del decorador.</p>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                          <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              Ejemplos de la vida real
-                            </button>
-                          </h2>
-                          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                              <p>Vestir ropa es un ejemplo del uso de decoradores. Cuando tienes frío, te cubres con un suéter. Si sigues teniendo frío a pesar del suéter, puedes ponerte una chaqueta encima. Si está lloviendo, puedes ponerte un impermeable. Todas estas prendas “extienden” tu comportamiento básico pero no son parte de ti, y puedes quitarte fácilmente cualquier prenda cuando lo desees.</p>
-                                  <img src="./assets/decoratoEjemplo.png" alt="ejemplo de decorator en la vida real">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFour">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                Aplicabilidad
-                              </button>
-                            </h2>
-                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                               <p> Utiliza el patrón Decorator cuando necesites asignar funcionalidades adicionales a objetos durante el tiempo de ejecución sin descomponer el código que utiliza esos objetos.
-
-                                El patrón Decorator te permite estructurar tu lógica de negocio en capas, crear un decorador para cada capa y componer objetos con varias combinaciones de esta lógica, durante el tiempo de ejecución. El código cliente puede tratar a todos estos objetos de la misma forma, ya que todos siguen una interfaz común.
-                               
-                                Utiliza el patrón cuando resulte extraño o no sea posible extender el comportamiento de un objeto utilizando la herencia.
-                               
-                                Muchos lenguajes de programación cuentan con la palabra clave final que puede utilizarse para evitar que una clase siga extendiéndose. Para una clase final, la única forma de reutilizar el comportamiento existente será envolver la clase con tu propio wrapper, utilizando el patrón Decorator.</p>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingFive">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                Como Implementarlo
-                              </button>
-                            </h2>
-                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                              <div class="accordion-body">
-                                <p>Asegúrate de que tu dominio de negocio puede representarse como un componente primario con varias capas opcionales encima.
-
-                                  Decide qué métodos son comunes al componente primario y las capas opcionales. Crea una interfaz de componente y declara esos métodos en ella.
-                                  
-                                  Crea una clase concreta de componente y define en ella el comportamiento base.
-                                  
-                                  Crea una clase base decoradora. Debe tener un campo para almacenar una referencia a un objeto envuelto. El campo debe declararse con el tipo de interfaz de componente para permitir la vinculación a componentes concretos, así como a decoradores. La clase decoradora base debe delegar todas las operaciones al objeto envuelto.
-                                  
-                                  Asegúrate de que todas las clases implementan la interfaz de componente.
-                                  
-                                  Crea decoradores concretos extendiéndolos a partir de la decoradora base. Un decorador concreto debe ejecutar su comportamiento antes o después de la llamada al método padre (que siempre delega al objeto envuelto).
-                                  
-                                  El código cliente debe ser responsable de crear decoradores y componerlos del modo que el cliente necesite.</p>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-                    </div>
-                    <div v-show="facade" class="cards col col-9" >
-                      <div class="facade">
-                          <div class="cardFacada">
-                              <h2>Facade</h2>
-                                <p></p>
-                             <div class="accordion" id="accordionExample">
-                              <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    Descripcion
-                                  </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                    <p></p>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Ejemplos 
-                                  </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                    <p></p>
-                                        
-                                        <p></p>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="accordion-item">
-                                  <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                      Aplicabilidad
-                                    </button>
-                                  </h2>
-                                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                     <p> </p>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="accordion-item">
-                                  <h2 class="accordion-header" id="headingFive">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                      Como Implementarlo
-                                    </button>
-                                  </h2>
-                                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                      <p></p>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                          </div>
+                  </div>
                 </div>
-              </div>  
-              <div v-show="form" class="cards col col-9" >
-                <div class="form">
-                  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeDLeaX-AMC2bvL29yescO_8zNs2DxgidBYbrPtkwqhTNKeWw/viewform?embedded=true" width="640" height="816" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Aplicabilidad
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p> Utiliza la clase adaptadora cuando quieras usar una clase existente, pero cuya interfaz no sea
+                      compatible con el resto del código.
+                      El patrón Adapter te permite crear una clase intermedia que sirva como traductora entre tu código
+                      y una clase heredada, una clase de un tercero o cualquier otra clase con una interfaz extraña.
+                      Utiliza el patrón cuando quieras reutilizar varias subclases existentes que carezcan de alguna
+                      funcionalidad común que no pueda añadirse a la superclase.
+                      Puedes extender cada subclase y colocar la funcionalidad que falta, dentro de las nuevas clases
+                      hijas. No obstante, deberás duplicar el código en todas estas nuevas clases, lo cual huele muy
+                      mal.
+                      Una solución mucho más elegante sería colocar la funcionalidad que falta dentro de una clase
+                      adaptadora. Después puedes envolver objetos a los que les falten funciones, dentro de la clase
+                      adaptadora, obteniendo esas funciones necesarias de un modo dinámico. Para que esto funcione, las
+                      clases en cuestión deben tener una interfaz común y el campo de la clase adaptadora debe seguir
+                      dicha interfaz. Este procedimiento es muy similar al del patrón Decorator.</p>
+                  </div>
                 </div>
-              </div>                                                 
-            </main>
-        </body>
-    <footer>
-        <div class="footer-copyright">
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Como Implementarlo
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p> Asegúrate de que tienes al menos dos clases con interfaces incompatibles:
+                      Una útil clase servicio que no puedes cambiar (a menudo de un tercero, heredada o con muchas
+                      dependencias existentes).
+                      Una o varias clases cliente que se beneficiarían de contar con una clase de servicio.
+                      Declara la interfaz con el cliente y describe el modo en que las clases cliente se comunican con
+                      la clase de servicio.
+                      Crea la clase adaptadora y haz que siga la interfaz con el cliente. Deja todos los métodos vacíos
+                      por ahora.
+                      Añade un campo a la clase adaptadora para almacenar una referencia al objeto de servicio. La
+                      práctica común es inicializar este campo a través del constructor, pero en ocasiones es adecuado
+                      pasarlo al adaptador cuando se invocan sus métodos.
+                      Uno por uno, implementa todos los métodos de la interfaz con el cliente en la clase adaptadora. La
+                      clase adaptadora deberá delegar la mayor parte del trabajo real al objeto de servicio, gestionando
+                      tan solo la interfaz o la conversión de formato de los datos.
+                      Las clases cliente deberán utilizar la clase adaptadora a través de la interfaz con el cliente.
+                      Esto te permitirá cambiar o extender las clases adaptadoras sin afectar al código cliente.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </footer>
-  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./script.js"></script> 
+      </div>
+      <div v-show="bridge" class="cards col col-9">
+        <div class="bridge">
+          <div class="cardBridge">
+            <h2>Bridge</h2>
+            <p>Bridge es un patrón de diseño utilizado para desacoplar una abstracción de su implementación de manera
+              que las dos puedan ser modificadas por separado sin necesidad de modificar la otra; dicho de otra manera,
+              se desacopla una abstracción de su implementación para que puedan variar independientemente.</p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">
+                    Descripcion
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Bridge es un patrón de diseño estructural que te permite dividir una clase grande, o un grupo de
+                      clases estrechamente relacionadas, en dos jerarquías separadas (abstracción e implementación) que
+                      pueden desarrollarse independientemente la una de la otra.</p>
+                    <p>Digamos que tienes una clase geométrica Forma con un par de subclases: Círculo y Cuadrado. Deseas
+                      extender esta jerarquía de clase para que incorpore colores, por lo que planeas crear las
+                      subclases de forma Rojo y Azul. Sin embargo, como ya tienes dos subclases, tienes que crear cuatro
+                      combinaciones de clase, como CírculoAzul y CuadradoRojo.</p>
+                    <p>Añadir nuevos tipos de forma y color a la jerarquía hará que ésta crezca exponencialmente. Por
+                      ejemplo, para añadir una forma de triángulo deberás introducir dos subclases, una para cada color.
+                      Y, después, para añadir un nuevo color habrá que crear tres subclases, una para cada tipo de
+                      forma. Cuanto más avancemos, peor será.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ejemplos
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <img src="./assets/bridgeEjemploUno.png" alt="ejemplo bridge uno">
+                    <p>Este problema se presenta porque intentamos extender las clases de forma en dos dimensiones
+                      independientes: por forma y por color. Es un problema muy habitual en la herencia de clases.
+                      El patrón Bridge intenta resolver este problema pasando de la herencia a la composición del
+                      objeto. Esto quiere decir que se extrae una de las dimensiones a una jerarquía de clases separada,
+                      de modo que las clases originales referencian un objeto de la nueva jerarquía, en lugar de tener
+                      todo su estado y sus funcionalidades dentro de una clase.</p>
+                    <img src="./assets/bridgeEjemplo2.png" alt="ejemplo bridge dos">
+                    <p>Con esta solución, podemos extraer el código relacionado con el color y colocarlo dentro de su
+                      propia clase, con dos subclases: Rojo y Azul. La clase Forma obtiene entonces un campo de
+                      referencia que apunta a uno de los objetos de color. Ahora la forma puede delegar cualquier
+                      trabajo relacionado con el color al objeto de color vinculado. Esa referencia actuará como un
+                      puente entre las clases Forma y Color. En adelante, añadir nuevos colores no exigirá cambiar la
+                      jerarquía de forma y viceversa.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Abstracción e implementación
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>El libro de la GoF introduce los términos Abstracción e Implementación como parte de la
+                      definición del patrón Bridge. En mi opinión, los términos suenan demasiado académicos y provocan
+                      que el patrón parezca más complicado de lo que es en realidad. Una vez leído el sencillo ejemplo
+                      con las formas y los colores, vamos a descifrar el significado que esconden las temibles palabras
+                      del libro de esta banda de cuatro.
+
+                      La Abstracción (también llamada interfaz) es una capa de control de alto nivel para una entidad.
+                      Esta capa no tiene que hacer ningún trabajo real por su cuenta, sino que debe delegar el trabajo a
+                      la capa de implementación (también llamada plataforma).
+
+                      Ten en cuenta que no estamos hablando de las interfaces o las clases abstractas de tu lenguaje de
+                      programación. Son cosas diferentes.
+
+                      Cuando hablamos de aplicación reales, la abstracción puede representarse por una interfaz gráfica
+                      de usuario (GUI), y la implementación puede ser el código del sistema operativo subyacente (API) a
+                      la que la capa GUI llama en respuesta a las interacciones del usuario.
+
+                      En términos generales, puedes extender esa aplicación en dos direcciones independientes:
+
+                      Tener varias GUI diferentes (por ejemplo, personalizadas para clientes regulares o
+                      administradores).
+                      Soportar varias API diferentes (por ejemplo, para poder lanzar la aplicación con Windows, Linux y
+                      macOS).
+                      En el peor de los casos, esta aplicación podría asemejarse a un plato gigante de espagueti, en el
+                      que cientos de condicionales conectan distintos tipos de GUI con varias API por todo el código.
+
+                      Es mucho más sencillo gestionar cambios en código modular
+                      Realizar incluso un cambio sencillo en una base de código monolítica es bastante difícil porque
+                      debes comprender todo el asunto muy bien. Es mucho más sencillo realizar cambios en módulos más
+                      pequeños y bien definidos.
+
+                      Puedes poner orden en este caos metiendo el código relacionado con combinaciones específicas
+                      interfaz-plataforma dentro de clases independientes. Sin embargo, pronto descubrirás que hay
+                      muchas de estas clases. La jerarquía de clase crecerá exponencialmente porque añadir una nueva GUI
+                      o soportar una API diferente exigirá que se creen más y más clases.
+
+                      Intentemos resolver este problema con el patrón Bridge, que nos sugiere que dividamos las clases
+                      en dos jerarquías:
+
+                      Abstracción: la capa GUI de la aplicación.
+                      Implementación: las API de los sistemas operativos.
+                      Arquitectura multiplataforma
+                      Una de las formas de estructurar una aplicación multiplataforma.
+
+                      El objeto de la abstracción controla la apariencia de la aplicación, delegando el trabajo real al
+                      objeto de la implementación vinculado. Las distintas implementaciones son intercambiables siempre
+                      y cuando sigan una interfaz común, permitiendo a la misma GUI funcionar con Windows y Linux.
+
+                      En consecuencia, puedes cambiar las clases de la GUI sin tocar las clases relacionadas con la API.
+                      Además, añadir soporte para otro sistema operativo sólo requiere crear una subclase en la
+                      jerarquía de implementación.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Aplicabilidad
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Utiliza el patrón Bridge cuando quieras dividir y organizar una clase monolítica que tenga muchas
+                      variantes de una sola funcionalidad (por ejemplo, si la clase puede trabajar con diversos
+                      servidores de bases de datos).
+
+                      Conforme más crece una clase, más difícil resulta entender cómo funciona y más tiempo se tarda en
+                      realizar un cambio. Cambiar una de las variaciones de funcionalidad puede exigir realizar muchos
+                      cambios a toda la clase, lo que a menudo provoca que se cometan errores o no se aborden algunos de
+                      los efectos colaterales críticos.
+
+                      El patrón Bridge te permite dividir la clase monolítica en varias jerarquías de clase. Después,
+                      puedes cambiar las clases de cada jerarquía independientemente de las clases de las otras. Esta
+                      solución simplifica el mantenimiento del código y minimiza el riesgo de descomponer el código
+                      existente.
+
+                      Utiliza el patrón cuando necesites extender una clase en varias dimensiones ortogonales
+                      (independientes).
+
+                      El patrón Bridge sugiere que extraigas una jerarquía de clase separada para cada una de las
+                      dimensiones. La clase original delega el trabajo relacionado a los objetos pertenecientes a dichas
+                      jerarquías, en lugar de hacerlo todo por su cuenta.
+
+                      Utiliza el patrón Bridge cuando necesites poder cambiar implementaciones durante el tiempo de
+                      ejecución.
+
+                      Aunque es opcional, el patrón Bridge te permite sustituir el objeto de implementación dentro de la
+                      abstracción. Es tan sencillo como asignar un nuevo valor a un campo.
+
+                      Por cierto, este último punto es la razón principal por la que tanta gente confunde el patrón
+                      Bridge con el patrón Strategy. Recuerda que un patrón es algo más que un cierto modo de
+                      estructurar tus clases. También puede comunicar intención y el tipo de problema que se está
+                      abordando.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Como Implementarlo
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Identifica las dimensiones ortogonales de tus clases. Estos conceptos independientes pueden ser:
+                      abstracción/plataforma, dominio/infraestructura, front end/back end, o interfaz/implementación.
+                      Comprueba qué operaciones necesita el cliente y defínelas en la clase base de abstracción.
+                      Determina las operaciones disponibles en todas las plataformas. Declara aquellas que necesite la
+                      abstracción en la interfaz general de implementación.
+                      Crea clases concretas de implementación para todas las plataformas de tu dominio, pero asegúrate
+                      de que todas sigan la interfaz de implementación.
+                      Dentro de la clase de abstracción añade un campo de referencia para el tipo de implementación. La
+                      abstracción delega la mayor parte del trabajo al objeto de la implementación referenciado en ese
+                      campo.
+                      Si tienes muchas variantes de lógica de alto nivel, crea abstracciones refinadas para cada
+                      variante extendiendo la clase base de abstracción.
+                      El código cliente debe pasar un objeto de implementación al constructor de la abstracción para
+                      asociar el uno con el otro. Después, el cliente puede ignorar la implementación y trabajar solo
+                      con el objeto de la abstracción.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="composite" class="cards col col-9">
+        <div class="composite">
+          <div class="cardComposite">
+            <h2>Composite</h2>
+            <p>Composite es un patrón de diseño estructural que te permite componer objetos en estructuras de árbol y
+              trabajar con esas estructuras como si fueran objetos individuales.</p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">
+                    Descripcion
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>El patrón de diseño Composite nos sirve para construir estructuras complejas partiendo de otras
+                      estructuras mucho más simples, dicho de otra manera, podemos crear estructuras compuestas las
+                      cuales están conformadas por otras estructuras más pequeñas.
+                      Para comprender mejor como funciona este patrón imaginemos una casa de ladrillos, las casas como
+                      tal no están hecha de una pieza, si observamos las paredes estas esta echas de pequeñas piezas
+                      llamadas ladrillos, entonces, el conjunto de estos ladrillos crea paredes, y un conjunto de
+                      paredes crean una casa. este ejemplo puede ser aplicado al patrón Composite, este ejemplo nos da
+                      una idea de cómo trabaja para poder utilizarlo con otros ejemplos.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ejemplos
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>El uso del patrón Composite sólo tiene sentido cuando el modelo central de tu aplicación puede
+                      representarse en forma de árbol.
+
+                      Por ejemplo, imagina que tienes dos tipos de objetos: Productos y Cajas. Una Caja puede contener
+                      varios Productos así como cierto número de Cajas más pequeñas. Estas Cajas pequeñas también pueden
+                      contener algunos Productos o incluso Cajas más pequeñas, y así sucesivamente.
+
+                      Digamos que decides crear un sistema de pedidos que utiliza estas clases. Los pedidos pueden
+                      contener productos sencillos sin envolver, así como cajas llenas de productos... y otras cajas.
+                      ¿Cómo determinarás el precio total de ese pedido?</p>
+                    <img src="./assets/ejemploVidaRealComposite.png" alt="ejemplo de la vida real composite">
+                    <p>Puedes intentar la solución directa: desenvolver todas las cajas, repasar todos los productos y
+                      calcular el total. Esto sería viable en el mundo real; pero en un programa no es tan fácil como
+                      ejecutar un bucle. Tienes que conocer de antemano las clases de Productos y Cajas a iterar, el
+                      nivel de anidación de las cajas y otros detalles desagradables. Todo esto provoca que la solución
+                      directa sea demasiado complicada, o incluso imposible.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Aplicabilidad
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Utiliza el patrón Composite cuando tengas que implementar una estructura de objetos con forma de
+                      árbol.
+
+                      El patrón Composite te proporciona dos tipos de elementos básicos que comparten una interfaz
+                      común: hojas simples y contenedores complejos. Un contenedor puede estar compuesto por hojas y por
+                      otros contenedores. Esto te permite construir una estructura de objetos recursivos anidados
+                      parecida a un árbol.
+
+                      Utiliza el patrón cuando quieras que el código cliente trate elementos simples y complejos de la
+                      misma forma.
+
+                      Todos los elementos definidos por el patrón Composite comparten una interfaz común. Utilizando
+                      esta interfaz, el cliente no tiene que preocuparse por la clase concreta de los objetos con los
+                      que funciona.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Como Implementarlo
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Asegúrate de que el modelo central de tu aplicación pueda representarse como una estructura de
+                      árbol. Intenta dividirlo en elementos simples y contenedores. Recuerda que los contenedores deben
+                      ser capaces de contener tanto elementos simples como otros contenedores.
+
+                      Declara la interfaz componente con una lista de métodos que tengan sentido para componentes
+                      simples y complejos.
+
+                      Crea una clase hoja para representar elementos simples. Un programa puede tener varias clases hoja
+                      diferentes.
+
+                      Crea una clase contenedora para representar elementos complejos. Incluye un campo matriz en esta
+                      clase para almacenar referencias a subelementos. La matriz debe poder almacenar hojas y
+                      contenedores, así que asegúrate de declararla con el tipo de la interfaz componente.
+
+                      Al implementar los métodos de la interfaz componente, recuerda que un contenedor debe delegar la
+                      mayor parte del trabajo a los subelementos.
+
+                      Por último, define los métodos para añadir y eliminar elementos hijos dentro del contenedor.
+
+                      Ten en cuenta que estas operaciones se pueden declarar en la interfaz componente. Esto violaría el
+                      Principio de segregación de la interfaz porque los métodos de la clase hoja estarían vacíos. No
+                      obstante, el cliente podrá tratar a todos los elementos de la misma manera, incluso al componer el
+                      árbol.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="decorator" class="cards col col-9">
+        <div class="decorator">
+          <div class="cardDecorator">
+            <h2>Decorator</h2>
+            <p>Decorator es un patrón de diseño estructural que te permite añadir funcionalidades a objetos colocando
+              estos objetos dentro de objetos encapsuladores especiales que contienen estas funcionalidades.</p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">
+                    Descripcion
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Según este patrón, cualquier objeto puede complementarse con un comportamiento deseado sin
+                      influir en las funcionalidades de otros objetos de la misma clase. Desde el punto de vista
+                      estructural, el patrón Decorador tiene mucho en común con el patrón Cadena de Responsabilidad
+                      (Chain of Responsibility), aunque, en contraste con este, con un procesador central, todas las
+                      clases reciben las peticiones.
+
+                      El componente de software que hay que ampliar se “decora” con una o más clases decoradoras, que lo
+                      envuelven completamente, siguiendo el patrón de diseño Decorador. Cada decorador es del mismo tipo
+                      que el componente al que envuelve y, por lo tanto, tiene la misma interfaz. De esta manera, las
+                      llamadas de método entrantes pueden delegarse fácilmente al componente adjunto mientras lleva a
+                      cabo una funcionalidad. Las llamadas también pueden procesarse dentro del decorador.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ejemplos de la vida real
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Vestir ropa es un ejemplo del uso de decoradores. Cuando tienes frío, te cubres con un suéter. Si
+                      sigues teniendo frío a pesar del suéter, puedes ponerte una chaqueta encima. Si está lloviendo,
+                      puedes ponerte un impermeable. Todas estas prendas “extienden” tu comportamiento básico pero no
+                      son parte de ti, y puedes quitarte fácilmente cualquier prenda cuando lo desees.</p>
+                    <img src="./assets/decoratoEjemplo.png" alt="ejemplo de decorator en la vida real">
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Aplicabilidad
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p> Utiliza el patrón Decorator cuando necesites asignar funcionalidades adicionales a objetos
+                      durante el tiempo de ejecución sin descomponer el código que utiliza esos objetos.
+
+                      El patrón Decorator te permite estructurar tu lógica de negocio en capas, crear un decorador para
+                      cada capa y componer objetos con varias combinaciones de esta lógica, durante el tiempo de
+                      ejecución. El código cliente puede tratar a todos estos objetos de la misma forma, ya que todos
+                      siguen una interfaz común.
+
+                      Utiliza el patrón cuando resulte extraño o no sea posible extender el comportamiento de un objeto
+                      utilizando la herencia.
+
+                      Muchos lenguajes de programación cuentan con la palabra clave final que puede utilizarse para
+                      evitar que una clase siga extendiéndose. Para una clase final, la única forma de reutilizar el
+                      comportamiento existente será envolver la clase con tu propio wrapper, utilizando el patrón
+                      Decorator.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Como Implementarlo
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Asegúrate de que tu dominio de negocio puede representarse como un componente primario con varias
+                      capas opcionales encima.
+
+                      Decide qué métodos son comunes al componente primario y las capas opcionales. Crea una interfaz de
+                      componente y declara esos métodos en ella.
+
+                      Crea una clase concreta de componente y define en ella el comportamiento base.
+
+                      Crea una clase base decoradora. Debe tener un campo para almacenar una referencia a un objeto
+                      envuelto. El campo debe declararse con el tipo de interfaz de componente para permitir la
+                      vinculación a componentes concretos, así como a decoradores. La clase decoradora base debe delegar
+                      todas las operaciones al objeto envuelto.
+
+                      Asegúrate de que todas las clases implementan la interfaz de componente.
+
+                      Crea decoradores concretos extendiéndolos a partir de la decoradora base. Un decorador concreto
+                      debe ejecutar su comportamiento antes o después de la llamada al método padre (que siempre delega
+                      al objeto envuelto).
+
+                      El código cliente debe ser responsable de crear decoradores y componerlos del modo que el cliente
+                      necesite.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="facade" class="cards col col-9">
+        <div class="facade">
+          <div class="cardFacade">
+            <h2>Facade</h2>
+            <p>Facade es un patrón de diseño estructural que proporciona una interfaz simplificada a una biblioteca,
+              un
+              framework o cualquier otro grupo complejo de clases.</p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">
+                    Descripción
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Una fachada es una clase que proporciona una interfaz simplificada a una biblioteca,
+                      framework o
+                      cualquier otro grupo complejo de clases. Solo incluye las funciones realmente importantes para
+                      los
+                      clientes. Resulta útil cuando hay que integrar una aplicación con una biblioteca sofisticada
+                      con
+                      decenas de funciones, de la cual sólo necesitas una pequeña parte. También nos ayuda a
+                      minimizar
+                      el esfuerzo de actualizar a futuras versiones del framework o de sustituirlo por otro. Lo
+                      único
+                      que habría que cambiar en la aplicación es la implementación de los métodos.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ejemplos de una aplicación:
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>En este caso vemos un diagrama donde se aplica el patrón facade</p>
+                    <img src="./assets/facade3.png" alt="Diagrama de donde se aplicaria un patron adapter">
+                    <p>
+                    <ol>
+                      <li>Una fachada es una clase que proporciona una interfaz simplificada a una biblioteca,
+                        framework o cualquier otro grupo complejo de clases. Solo incluye las funciones realmente
+                        importantes para los clientes.</li>
+                      <li>Puede crearse una clase Fachada Adicional para evitar contaminar una única fachada con
+                        funciones no relacionadas que podrían convertirla en otra estructura compleja.</li>
+                      <li>El Subsistema Complejo consiste en decenas de objetos diversos. Para lograr que todos
+                        hagan
+                        algo significativo, debes profundizar en los detalles de implementación del subsistema.</li>
+                      <li>El Cliente utiliza la fachada en lugar de invocar directamente los objetos del subsistema.
+                      </li>
+                    </ol>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Ejemplos de la vida real
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <img src="./assets/facade2.png" alt="Ejemplo de Patron adapter en la vida real">
+                    <p>Cuando llamas a una tienda para hacer un pedido por teléfono, un operador es tu fachada a
+                      todos
+                      los servicios y departamentos de la tienda. El operador te proporciona una sencilla interfaz
+                      de
+                      voz al sistema de pedidos, pasarelas de pago y varios servicios de entrega.</p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Aplicabilidad
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>Se puede utilizar el patrón Facade cuando se necesita una interfaz limitada pero directa a
+                        un
+                        subsistema
+                        complejo.
+
+                        A menudo los subsistemas se vuelven más complejos con el tiempo. Incluso la aplicación de
+                        patrones
+                        de diseño suele conducir a la creación de un mayor número de clases. Un subsistema puede
+                        hacerse
+                        más
+                        flexible y más fácil de reutilizar en varios contextos, pero la cantidad de código de
+                        configuración
+                        que exige de un cliente, crece aún más. El patrón Facade intenta solucionar este problema
+                        proporcionando un atajo a las funciones más utilizadas del subsistema que mejor encajan con
+                        los
+                        requisitos del cliente.</li>
+
+                      <li>Se puede utilizar el patrón Facade cuando se quiera estructurar un subsistema en capas.
+
+                        Crea fachadas para definir puntos de entrada a cada nivel de un subsistema. Puedes reducir
+                        el
+                        acoplamiento entre varios subsistemas exigiéndoles que se comuniquen únicamente mediante
+                        fachadas.
+
+                        Por ejemplo, regresemos a nuestro framework de conversión de vídeo. Puede dividirse en dos
+                        capas: la
+                        relacionada con el vídeo y la relacionada con el audio. Se puede crear una fachada para cada
+                        capa y
+                        hacer que las clases de cada una de ellas se comuniquen entre sí a través de esas fachadas.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Como Implementarlo
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>
+                    <ol>
+                      <li>Comprueba si es posible proporcionar una interfaz más simple que la que está
+                        proporcionando un
+                        subsistema existente. Estás bien encaminado si esta interfaz hace que el código cliente sea
+                        independiente de muchas de las clases del subsistema.</li>
+                      <li>Declara e implementa esta interfaz en una nueva clase fachada. La fachada deberá
+                        redireccionar
+                        las llamadas desde el código cliente a los objetos adecuados del subsistema. La fachada
+                        deberá
+                        ser responsable de inicializar el subsistema y gestionar su ciclo de vida, a no ser que el
+                        código cliente ya lo haga.</li>
+                      <li>Para aprovechar el patrón al máximo, haz que todo el código cliente se comunique con el
+                        subsistema únicamente a través de la fachada. Ahora el código cliente está protegido de
+                        cualquier cambio en el código del subsistema. Por ejemplo, cuando se actualice un subsistema
+                        a
+                        una nueva versión, sólo tendrás que modificar el código de la fachada.</li>
+                      <li>Si facade se vuelve demasiado grande, piensa en extraer parte de su comportamiento y
+                        colocarlo
+                        dentro de una nueva clase facade refinada.</li>
+                    </ol>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="flyweight" class="cards col col-9">
+        <div class="flyweight">
+          <div class="cardFlyweight">
+            <h2>Flyweight</h2>
+            <p>Flyweight es un patrón de diseño estructural que nos ayuda a optimizar la RAM disponible.</p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">
+                    Descripción
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Flyweight es un patrón de diseño estructural que permite mantener más objetos dentro de la
+                      cantidad disponible de RAM compartiendo las partes comunes del estado entre varios objetos en
+                      lugar de mantener toda la información en cada objeto. Esto nos sirve para optimizar el sistema
+                      y
+                      sacar su mayor rendimiento sin desaprovechar los recursos con datos redundantes. Este patrón
+                      es
+                      muy utilizado en el desarrollo de videojuegos, ya que ayuda a optimizarlos</p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ejemplos de una aplicación:
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>En este ejemplo, el patrón Flyweight ayuda a reducir el uso de memoria a la hora de
+                      representar
+                      millones de objetos de árbol en un lienzo.</p>
+                    <img src="./assets/fly1.png" alt="Diagrama de donde se aplicaria un patron adapter">
+                    <p>
+                    <ol>
+                      <li>El patrón extrae el estado intrínseco repetido de una clase principal *Tree* y la mueve
+                        dentro de la clase flyweight *TreeType*.</li>
+                      <li>Ahora, en lugar de almacenar la misma información en varios objetos, se mantiene en unos
+                        pocos
+                        objetos flyweight vinculados a los objetos de *Tree* adecuados que actúan como contexto. El
+                        código cliente crea nuevos objetos árbol utilizando la fábrica flyweight, que encapsula la
+                        complejidad de buscar el objeto adecuado y reutilizarlo si es necesario.</li>
+                    </ol>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Aplicabilidad
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul>
+                      <li>Utiliza el patrón Flyweight únicamente cuando tu programa deba soportar una enorme
+                        cantidad
+                        de objetos que apenas quepan en la RAM disponible.</li>
+
+                      <li> La ventaja de aplicar el patrón depende en gran medida de cómo y dónde se utiliza.
+                        Resulta
+                        más útil cuando:</li>
+                      <ol>
+                        <li>La aplicación necesita generar una cantidad enorme de objetos similares.</li>
+                        <li>Esto consume toda la RAM disponible de un dispositivo objetivo.</li>
+                        <li>Los objetos contienen estados duplicados que se pueden extraer y compartir entre varios
+                          objetos.</li>
+                      </ol>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Como Implementarlo
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>
+                    <ol>
+                      <li>Divide los campos de una clase que se convertirá en flyweight en dos partes:</li>
+                      <ul>
+                        <li>El estado intrínseco: los campos que contienen información invariable duplicada a través
+                          de
+                          varios objetos.</li>
+                        <li>El estado extrínseco: los campos que contienen información contextual única de cada
+                          objeto.
+                        </li>
+                      </ul>
+                      <li>Deja los campos que representan el estado intrínseco en la clase, pero asegúrate de que
+                        sean
+                        inmutables. Deben llevar sus valores iniciales únicamente dentro del constructor.</li>
+                      <li>Repasa los métodos que utilizan campos del estado extrínseco. Para cada campo utilizado en
+                        el
+                        método, introduce un nuevo parámetro y utilízalo en lugar del campo.
+                      </li>
+                      <li>Opcionalmente, crea una clase fábrica para gestionar el grupo de objetos flyweight,
+                        buscando
+                        uno existente antes de crear uno nuevo. Una vez que la fábrica esté en su sitio, los
+                        clientes
+                        sólo deberán solicitar objetos flyweight a través de ella. Deberán describir el flyweight
+                        deseado pasando su estado intrínseco a la fábrica.</li>
+                      <li>El cliente deberá almacenar o calcular valores del estado extrínseco (contexto) para poder
+                        invocar métodos de objetos flyweight. Por comodidad, el estado extrínseco puede moverse a
+                        una
+                        clase contexto separada junto con el campo referenciador del flyweight.</li>
+                    </ol>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="proxy" class="cards col col-9">
+        <div class="proxy">
+          <div class="cardProxy">
+            <h2>Proxy</h2>
+            <p>Proxy es un patrón de diseño estructural que te permite proporcionar un sustituto o marcador de
+              posición
+              para otro objeto. Un proxy controla el acceso al objeto original, permitiéndote hacer algo antes o
+              después
+              de que la solicitud llegue al objeto original.</p>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="false" aria-controls="collapseOne">
+                    Descripción
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Proxy es un patrón de diseño estructural que te permite proporcionar un sustituto o marcador
+                      de
+                      posición para otro objeto. Un proxy controla el acceso al objeto original, permitiéndote hacer
+                      algo antes o después de que la solicitud llegue al objeto original.
+                      ¿Por qué controlar el acceso a un objeto? Imagina que se tiene un objeto enorme que consume
+                      una
+                      gran cantidad de recursos del sistema. Lo necesitas de vez en cuando, pero no siempre. Este
+                      patrón
+                      sugiere crear una nueva clase proxy con la misma interfaz que un objeto de servicio original.
+                      Después actualizas tu aplicación para que pase el objeto proxy a todos los clientes del objeto
+                      original. Al recibir una solicitud de un cliente, el proxy crea un objeto de servicio real y
+                      le
+                      delega todo el trabajo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Ejemplos de una aplicación:
+                  </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>Este ejemplo ilustra cómo el patrón Proxy puede ayudar a introducir la inicialización
+                      diferida y
+                      el almacenamiento en caché a una biblioteca de integración de YouTube de un tercero.</p>
+                    <img src="./assets/proxyEjm.png" alt="Diagrama de donde se aplicaria un patron adapter">
+                    <p>
+                    <ol>
+                      <li>La biblioteca nos proporciona la clase de descarga de videos. Sin embargo, es muy
+                        ineficiente.
+                        Si la aplicación cliente solicita el mismo video muchas veces, la biblioteca lo descarga una
+                        y
+                        otra vez, en lugar de guardarlo en caché y reutilizar el primer archivo descargado.</li>
+                      <li>La clase proxy implementa la misma interfaz que el descargador original y le delega todo
+                        el
+                        trabajo. No obstante, mantiene un seguimiento de los archivos descargados y devuelve los
+                        resultados en caché cuando la aplicación solicita el mismo video varias veces.</li>
+                    </ol>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Ejemplos de la vida real
+                  </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <img src="./assets/proxyVidaReal.png" alt="Ejemplo de Patron adapter en la vida real">
+                    <p>Una tarjeta de crédito es un proxy de una cuenta bancaria, que, a su vez, es un proxy de un
+                      manojo de billetes. Ambos implementan la misma interfaz, por lo que pueden utilizarse para
+                      realizar un pago. El consumidor se siente bien porque no necesita llevar un montón de efectivo
+                      encima. El dueño de la tienda también está contento porque los ingresos de la transacción se
+                      añaden electrónicamente a la cuenta bancaria de la tienda sin el riesgo de perder el depósito
+                      o
+                      sufrir un robo de camino al banco.</p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    Aplicabilidad
+                  </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <ul>
+                      <li> Inicialización diferida (proxy virtual). Es cuando tienes un objeto de servicio muy
+                        pesado
+                        que utiliza muchos recursos del sistema al estar siempre funcionando, aunque solo lo
+                        necesites
+                        de vez en cuando. En lugar de crear el objeto cuando se lanza la aplicación, puedes retrasar
+                        la
+                        inicialización del objeto a un momento en que sea realmente necesario.</li>
+
+                      <li> Control de acceso (proxy de protección). Es cuando quieres que únicamente clientes
+                        específicos sean capaces de utilizar el objeto de servicio, por ejemplo, cuando tus objetos
+                        son
+                        partes fundamentales de un sistema operativo y los clientes son varias aplicaciones lanzadas
+                        (incluyendo maliciosas). El proxy puede pasar la solicitud al objeto de servicio tan sólo si
+                        las
+                        credenciales del cliente
+                        cumplen ciertos criterios.</li>
+                      <li> Ejecución local de un servicio remoto (proxy remoto). Es cuando el objeto de servicio se
+                        ubica en un servidor remoto. En este caso, el proxy pasa la solicitud del cliente por la
+                        red,
+                        gestionando todos los detalles desagradables de trabajar con la red.</li>
+                      <li>Solicitudes de registro (proxy de registro). Es cuando quieres mantener un historial de
+                        solicitudes al objeto de servicio. El proxy puede registrar cada solicitud antes de pasarla
+                        al
+                        servicio.</li>
+                      <li> Resultados de solicitudes en caché (proxy de caché). Es cuando necesitas guardar en caché
+                        resultados de solicitudes de clientes y gestionar el ciclo de vida de ese caché,
+                        especialmente
+                        si los resultados son muchos. El proxy puede implementar el caché para solicitudes
+                        recurrentes
+                        que siempre dan los mismos
+                        resultados. El proxy puede utilizar los parámetros de las solicitudes como claves de caché.
+                      </li>
+                      <li>Referencia inteligente. Es cuando debes ser capaz de desechar un objeto pesado una vez que
+                        no
+                        haya clientes que lo utilicen. El proxy puede rastrear los clientes que obtuvieron una
+                        referencia del objeto de servicio o sus
+                        resultados. De vez en cuando, el proxy puede recorrer los clientes y comprobar si siguen
+                        activos. Si la lista del cliente se vacía, el proxy puede desechar el objeto de servicio y
+                        liberar los recursos subyacentes del sistema.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    Como Implementarlo
+                  </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                  data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <p>
+                    <ol>
+                      <li>Si no hay una interfaz de servicio preexistente, crea una para que los objetos de proxy y
+                        de
+                        servicio sean intercambiables. No siempre resulta posible extraer la interfaz de la clase
+                        servicio, porque tienes que cambiar todos los clientes del servicio para utilizar esa
+                        interfaz.
+                        El plan B consiste en convertir el proxy en una subclase de la clase servicio, de forma que
+                        herede la interfaz del servicio.
+                      </li>
+                      <li>Crea la clase proxy. Debe tener un campo para almacenar una referencia al servicio.
+                        Normalmente los proxies crean y gestionan el ciclo de vida completo de sus servicios. En
+                        raras
+                        ocasiones, el cliente pasa un servicio al proxy a través de un constructor.
+                      </li>
+                      <li>Implementa los métodos del proxy según sus propósitos. En la mayoría de los casos, después
+                        de
+                        hacer cierta labor, el proxy debería delegar el trabajo a un objeto de servicio.
+                      </li>
+                      <li>Considera introducir un método de creación que decida si el cliente obtiene un proxy o un
+                        servicio real. Puede tratarse de un simple método estático en la clase proxy o de todo un
+                        método
+                        de fábrica.</li>
+                      <li>Considera implementar la inicialización diferida para el objeto de servicio.</li>
+                    </ol>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-show="form" class="cards col col-9">
+        <div class="form">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeDLeaX-AMC2bvL29yescO_8zNs2DxgidBYbrPtkwqhTNKeWw/viewform?embedded=true"
+            width="640" height="816" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+        </div>
+      </div>
+    </main>
+  </body>
+  <footer>
+    <div class="footer-copyright">
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>

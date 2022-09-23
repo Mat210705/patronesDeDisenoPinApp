@@ -75,7 +75,9 @@ nav ul {
 .bridge,
 .composite,
 .decorator,
-.facade
+.facade, 
+.flyweight,
+.proxy,
 .form{
     overflow-y: scroll;
     margin: 5vh;
